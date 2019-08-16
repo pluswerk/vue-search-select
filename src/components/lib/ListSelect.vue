@@ -2,7 +2,7 @@
   /* wrap basic component */
   import BasicSelect from './BasicSelect.vue'
   import { commonMixin } from './mixins'
-  
+
   export default {
     mixins: [commonMixin],
     render: function (createElement) {
@@ -43,7 +43,7 @@
     computed: {
       options () {
         return this.list.map((e, i) => {
-          return { value: e[this.optionValue], text: this.buildText(e) }
+          return { value: e[this.optionValue], text: this.buildText(e), highlight: e.highlight }
         })
       },
       item () {

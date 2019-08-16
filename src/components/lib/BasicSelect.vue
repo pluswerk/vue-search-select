@@ -32,7 +32,7 @@
          tabindex="-1">
       <template v-for="(option, idx) in filteredOptions">
         <div class="item"
-             :class="{ 'selected': option.selected, 'current': pointer === idx }"
+             :class="{ 'selected': option.selected, 'current': pointer === idx, 'item--hightlight': option.highlight }"
              :data-vss-custom-attr="customAttrs[idx] ? customAttrs[idx] : ''"
              @click.stop="selectItem(option)"
              @mousedown="mousedownItem"
