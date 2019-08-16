@@ -1368,9 +1368,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    optionText: {
 	      type: String
 	    },
-	    customHighlight: {
-	      type: Boolean
-	    },
 	    customText: {
 	      type: Function
 	    },

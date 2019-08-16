@@ -33,9 +33,6 @@
       optionText: {
         type: String
       },
-      customHighlight: {
-        type: Boolean
-      },
       customText: {
         type: Function
       },
