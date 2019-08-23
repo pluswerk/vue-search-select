@@ -7,7 +7,11 @@ export default {
   },
   blurInput (self) {
     if (!self.mousedownState) {
-      self.searchText = ''
+      if (!self.freeText) {
+        self.searchText = ''
+      } else {
+        self.selectItem({value: self.searchText, text: self.searchText})
+      }
       self.closeOptions()
     }
   },

@@ -15,11 +15,23 @@
           isError: this.isError,
           isDisabled: this.isDisabled,
           placeholder: this.placeholder,
-          filterPredicate: this.filterPredicate
+          filterPredicate: this.filterPredicate,
+          freeText: this.freeText,
+          renderType: 'ListSelect'
         },
         on: {
           select: this.onSelect,
-          searchchange: (searchText) => this.$emit('searchchange', searchText)
+          searchchange: (searchText) => this.$emit('searchchange', searchText),
+          enter: (element) => {
+            if (typeof element === 'undefined' && this.freeText) {
+              element = {}
+              element[this.optionValue] = option.value
+              element[this.optionText] = option.text
+            }
+            if (element) {
+              this.selectItem(element)
+            }
+          }
         }
       })
     },
@@ -70,9 +82,14 @@
         if (Object.keys(option).length === 0 && option.constructor === Object) {
           this.$emit('select', option)
         } else {
-          const item = this.list.find((e, i) => {
+          let item = this.list.find((e, i) => {
             return e[this.optionValue] === option.value
           })
+          if (typeof item === 'undefined' && this.freeText) {
+            item = {}
+            item[this.optionValue] = option.value
+            item[this.optionText] = option.text
+          }
           this.$emit('select', item)
         }
       }

@@ -14,7 +14,8 @@ export default {
         isError: this.isError,
         isDisabled: this.isDisabled,
         placeholder: this.placeholder,
-        filterPredicate: this.filterPredicate
+        filterPredicate: this.filterPredicate,
+        renderType: 'MultiListSelect'
       },
       on: {
         select: this.onSelect,
