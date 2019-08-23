@@ -31,6 +31,14 @@ export default {
       default: (text, inputText) => {
         return text.match(escapedRegExp(inputText))
       }
+    },
+    freeText: {
+      type: Boolean,
+      default: false
+    },
+    renderType: {
+      type: String,
+      default: ''
     }
   }
 }

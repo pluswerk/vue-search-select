@@ -15,7 +15,8 @@ export default {
         isError: this.isError,
         isDisabled: this.isDisabled,
         placeholder: this.placeholder,
-        filterPredicate: this.filterPredicate
+        filterPredicate: this.filterPredicate,
+        renderType: 'ModelListSelect'
       },
       on: {
         input: this.onInput,

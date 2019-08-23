@@ -32,7 +32,7 @@
          tabindex="-1">
       <template v-for="(option, idx) in filteredOptions">
         <div class="item"
-             :class="{ 'selected': option.selected, 'current': pointer === idx, 'item--hightlight': option.highlight }"
+             :class="{ 'selected': option.selected, 'current': pointer === idx, 'item--highlight': option.highlight }"
              :data-vss-custom-attr="customAttrs[idx] ? customAttrs[idx] : ''"
              @click.stop="selectItem(option)"
              @mousedown="mousedownItem"
@@ -158,7 +158,12 @@ export default {
       common.nextItem(this)
     },
     enterItem () {
-      common.enterItem(this)
+      if (this.renderType === 'ListSelect') {
+        let currentItem = this.filteredOptions[this.pointer]
+        this.$emit('enter', currentItem)
+      } else {
+        common.enterItem(this)
+      }
     },
     pointerSet (index) {
       common.pointerSet(this, index)
